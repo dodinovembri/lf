@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Input;
 use Response;
 use App\models\Search;
+use App\models\Product;
 
 class FrontendSearch extends Controller
 {
@@ -86,6 +87,7 @@ class FrontendSearch extends Controller
     {
         $shop_id = $request->shop_id;        
         $data['result'] = Search::where('id', $shop_id)->get();
+        $data['product'] = Product::where('vendor_id', $shop_id)->get();
         $data['phone'] = "+ 1235 2355 988";
         $data['email'] = "youremail@email.com";
         $data['ket'] = "3-5 Business days delivery & Free Returns";
