@@ -150,7 +150,7 @@
             <?php  foreach ($product as $key => $value) { ?>
                 <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                     <div class="product d-flex flex-column">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('tmp/images/product-1.png') }}" alt="Colorlib Template">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('tmp/images')}}/{{ $value->product_photo }}" alt="Colorlib Template">
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3">
