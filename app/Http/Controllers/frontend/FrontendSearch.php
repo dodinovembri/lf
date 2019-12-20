@@ -8,6 +8,7 @@ use Input;
 use Response;
 use App\models\Search;
 use App\models\Product;
+use App\models\Headermenu;
 
 class FrontendSearch extends Controller
 {
@@ -88,6 +89,7 @@ class FrontendSearch extends Controller
         $shop_id = $request->shop_id;        
         $data['result'] = Search::where('id', $shop_id)->get();
         $data['product'] = Product::where('vendor_id', $shop_id)->get();
+        $data['header_menu'] = Headermenu::where('vendor_id', $shop_id)->where('active', 1)->get();
         $data['phone'] = "+ 1235 2355 988";
         $data['email'] = "youremail@email.com";
         $data['ket'] = "3-5 Business days delivery & Free Returns";
