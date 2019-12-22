@@ -32,20 +32,15 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <?php foreach ($header_menu as $key => $value) { ?>
-            <li class="nav-item active"><a href="index.html" class="nav-link">{{ $value->menu }}</a></li>
-            <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+            <!-- <li class="nav-item active"><a href="#" class="nav-link">{{ $value->menu }}</a></li> -->
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $value->menu }}</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                   <a class="dropdown-item" href="shop.html">Shop</a>
-                   <a class="dropdown-item" href="product-single.html">Single Product</a>
-                   <a class="dropdown-item" href="cart.html">Cart</a>
-                   <a class="dropdown-item" href="checkout.html">Checkout</a>
+                    <?php foreach ($sub_header_menu[$key] as $key2 => $value2) { ?>
+                        <a class="dropdown-item" href="shop.html">{{ $value2->sub_menu }}</a>
+                    <?php } ?>                                    
                 </div>
-            </li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> -->
+            </li>           
           <?php } ?>            
 
         </ul>
@@ -101,39 +96,19 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb">
         <div class="container">
             <div class="row no-gutters ftco-services">
-      <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services p-4 py-md-5">
-          <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-bag"></span>
-          </div>
-          <div class="media-body">
-            <h3 class="heading">Free Shipping</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>      
-      </div>
-      <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services p-4 py-md-5">
-          <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-customer-service"></span>
-          </div>
-          <div class="media-body">
-            <h3 class="heading">Support Customer</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>    
-      </div>
-      <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services p-4 py-md-5">
-          <div class="icon d-flex justify-content-center align-items-center mb-4">
-                <span class="flaticon-payment-security"></span>
-          </div>
-          <div class="media-body">
-            <h3 class="heading">Secure Payments</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>      
-      </div>
+                <?php foreach ($product_category as $key => $value) { ?>
+                    <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services p-4 py-md-5">
+                          <div class="icon d-flex justify-content-center align-items-center mb-4">
+                                <span class="{{ $value->logo }}"></span>
+                          </div>
+                          <div class="media-body">
+                            <h3 class="heading">{{ $value->product_category_name }}</h3>
+                            <p>{{ $value->desc }}</p>
+                          </div>
+                        </div>      
+                    </div>
+                <?php } ?>
     </div>
         </div>
     </section>
@@ -469,57 +444,24 @@
                 </div>
     </div>
     <div class="row mb-5">
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Minishop</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-          <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4 ml-md-5">
-          <h2 class="ftco-heading-2">Menu</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">Shop</a></li>
-            <li><a href="#" class="py-2 d-block">About</a></li>
-            <li><a href="#" class="py-2 d-block">Journal</a></li>
-            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-4">
-         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Help</h2>
-          <div class="d-flex">
-              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-              </ul>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                <li><a href="#" class="py-2 d-block">Contact</a></li>
-              </ul>
+        <?php foreach ($footer as $key => $value) { ?>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">{{ $value->foot_menu }}</h2>                                                                       
+                        <ul class="list-unstyled">
+                        <?php foreach ($sub_footer[$key] as $key2 => $value2) { ?>
+                            <li><a href="#" class="py-2 d-block">{{ $value2->footer_sub_menu }}</a></li>
+                            <?php if ($key == 0) { ?>
+                                <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            <?php } ?>                 
+                        <?php } ?>                          
+                        </ul>
+                </div>
             </div>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Have a Questions?</h2>
-            <div class="block-23 mb-3">
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-        </div>
-      </div>
+        <?php } ?>
     </div>
     <div class="row">
       <div class="col-md-12 text-center">

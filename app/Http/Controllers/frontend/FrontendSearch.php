@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Input;
 use Response;
 use App\models\Search;
 use App\models\Product;
 use App\models\Headermenu;
+use App\models\Footer;
+use App\models\SubFooter;
+use App\models\ProductCategory;
+use App\models\SubHeaderMenu;
+
 
 class FrontendSearch extends Controller
 {
@@ -89,13 +95,32 @@ class FrontendSearch extends Controller
         $shop_id = $request->shop_id;        
         $data['result'] = Search::where('id', $shop_id)->get();
         $data['product'] = Product::where('vendor_id', $shop_id)->get();
-        $data['header_menu'] = Headermenu::where('vendor_id', $shop_id)->where('active', 1)->get();
+        $data['header_menu'] = Headermenu::where('vendor_id', $shop_id)->where('active', 1)->get();        
+
+        $sub_header_menu = Headermenu::where('vendor_id', $shop_id)->get();
+        foreach ($sub_header_menu as $key => $value) {
+            $data['sub_header_menu'][] = SubHeaderMenu::where('vendor_id', $shop_id)->where('menu_id', $value->id)->get();
+        }
+        
         $data['phone'] = "+ 1235 2355 988";
         $data['email'] = "youremail@email.com";
         $data['ket'] = "3-5 Business days delivery & Free Returns";
         $data['shop_name'] = "Minishop";
+        $data['footer'] = Footer::where('vendor_id', $shop_id)->get();
+        $data['product_category'] = ProductCategory::where('vendor_id', $shop_id)->get();
 
+        $footer = Footer::where('vendor_id', $shop_id)->get();
+        foreach ($footer as $key => $value) {            
+            $data['sub_footer'][] = SubFooter::where('vendor_id', $shop_id)->where('footer_id', $value->id)->get();   
+        }        
+
+        
         return view('home', $data);
+    }
+
+    public function link()
+    {
+        return 'lallala';
     }
 
 

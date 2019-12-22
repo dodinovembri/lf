@@ -23,3 +23,8 @@ Route::post('search',[
     'as' => 'search',
     'uses' => 'frontend\\FrontendSearch@search'
 ]);
+
+// Route::get('link',[
+//     'as' => 'link',
+//     'uses' => 'frontend\\FrontendSearch@link'
+// ]);
